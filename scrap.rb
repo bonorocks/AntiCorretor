@@ -15,20 +15,19 @@ while num < numpag
     doc = Nokogiri::HTML(open(url))
     cidade = doc.css("html body form#aspnetForm div.cabecalho div.cabecalho_content h1 b").text
     cidade = cidade.slice(12..cidade.index(",")-1)
-    doc.css(".listagem_item").each do |item|
-      bairro = item.at_css(".bairro").text.strip
-      #bairro = bairro.gsub(/^ \n/,'').gsub(/^ */,'').gsub(/ *$/,'')
-      #bairro = bairro.strip
+    doc.css(".listagem_item").each do |item|       
       local   = item.at_css(".localizacao").text.strip
-      #local = txt.gsub(/^ */,'').gsub(/ *$/,'')
+      icones = item.search('td.icones')
+      numqt = icones[0].text.strip
+      numst = icones[1].text.strip
+      numgar = icones[2].text.strip
       area   = item.at_css(".m2").text[/[0-9\.]+/] 
       valor  = item.at_css(".valores").text[/[0-9\.]+/]
       valm2 = item.at_css(".v_m2").text[/[0-9\.]+/]
-      dat    = item.at_css(".atualizacao").text.strip
-      #[/ \d.(\/|-|\.|\s).\d(\/|-|\.|\s)\d{2,4}/]
+      dat    = item.at_css(".atualizacao").text.strip  
       link    = item.css('.localizacao a').map { |link| link['href'] }
       cod   = link.to_s.slice(-6..-1)  
-      puts "#{cidade} - #{bairro} - #{local} - #{area} - #{valor} - #{valm2} - #{dat} - #{cod}"
-    end  
-    num +=1
+      puts "#{cidade} - #{local} - #{numqt} - #{numst} - #{numgar} - #{area} - #{valor} - #{valm2} - #{dat} - #{cod}"
+     end  
+     num +=1
 end

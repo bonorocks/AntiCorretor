@@ -22,8 +22,15 @@ while num < numpag
       numst = icones[1].text.strip
       numgar = icones[2].text.strip
       area   = item.at_css(".m2").text[/[0-9\.]+/] 
+      area = Integer(area)
       valor  = item.at_css(".valores").text[/[0-9\.]+/]
+      if !valor.nil?
+       valor = Integer(valor.delete('.'))
+      end
       valm2 = item.at_css(".v_m2").text[/[0-9\.]+/]
+      if !valm2.nil?
+         valm2 = Integer(valm2.delete('.'))
+      end      
       dat    = item.at_css(".atualizacao").text.strip  
       link    = item.css('.localizacao a').map { |link| link['href'] }
       cod   = link.to_s.slice(-6..-1)  

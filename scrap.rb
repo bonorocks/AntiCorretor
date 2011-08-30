@@ -19,8 +19,11 @@ while num < numpag
       local   = item.at_css(".localizacao").text.strip
       icones = item.search('td.icones')
       numqt = icones[0].text.strip
+      numqt = Integer(numqt)
       numst = icones[1].text.strip
+      numst = Integer(numst)
       numgar = icones[2].text.strip
+      numgar = Integer(numgar)
       area   = item.at_css(".m2").text[/[0-9\.]+/] 
       area = Integer(area)
       valor  = item.at_css(".valores").text[/[0-9\.]+/]

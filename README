@@ -4,10 +4,10 @@
    fundamentalistas do mercado, que servirao de base para a criacao de um site
    de servicos para o usuario.
 
-A linguagem de programacao usada e Ruby, no framework RubyOnRails. O banco e
-fornecido pelo framework e pode ser MySQL, CouchDB ou outro banco nao relacional
-como o SQLite.
+A linguagem de programacao usada e Ruby, no framework RubyOnRails. O banco e o SQLite versao 3.x
+fornecido pelo framework mas pode tambem ser MySQL, CouchDB ou outro banco nao relacional
+como o MongoDB.
 
 O programa ficara no ar atraves de um site de hospedagem free na internet, com
-suporte a Ruby - o www.alwaysdata.com - com servidores na Franca e que oferece
+suporte a Ruby - o www.heroku.com que oferece boa performance e espaço aceitável até por grandes aplicações ,uma vez que o BD não ocupa muito espaço nem processamento, mas existem outros sites como www.alwaysdata.com - com servidores na Franca e que oferece
 40Gb de espaco, 40mb de processamento e 4Gb de RAM gratuitos.
